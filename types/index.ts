@@ -19,6 +19,7 @@ export type Result = {
   ];
   origin: string;
   meanings: Meaning[];
+  sourceURLS: string[];
   // phonetics: Phonetics[];
 };
 

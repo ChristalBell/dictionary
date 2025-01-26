@@ -3,6 +3,9 @@ import Box from "@mui/material/Box";
 import React from "react";
 import { Result } from "@/types";
 import { COLORS } from "@/styles/colors";
+import Button from "@mui/material/Button";
+import Link from "@mui/material/Link";
+import Sound from "./Sound";
 
 interface Props {
   results: Result[];
@@ -12,21 +15,31 @@ const Results = ({ results }: Props) => {
   console.log(result);
   return (
     <Box>
-      <Box className="top">
-        <Typography variant="h1" sx={{ color: COLORS.black }}>
-          {result.word}
-        </Typography>
-        <Typography sx={{ color: COLORS.purple }}>
-          {result.phonetics[0].text}
-        </Typography>
-        <Typography sx={{ color: COLORS.lavender }}>
-          {result.phonetics[0].audio}
-        </Typography>
+      <Box
+        className="top"
+        sx={{
+          marginTop: "2.175rem",
+          marginBottom: "2rem ",
+          display: "flex",
+          justifyContent: "space-between",
+        }}
+      >
+        <div>
+          <Typography variant="h1" sx={{ color: COLORS.black }}>
+            {result.word}
+          </Typography>
+          <Typography sx={{ color: COLORS.purple }}>
+            {result.phonetics[0].text}
+          </Typography>
+        </div>
+        <Sound result={result} />
       </Box>
 
       {/* per full definition  */}
       <Box sx={{ color: COLORS.black }} key={result.word}>
-        <Typography sx={{ fontSize: "1.75rem", fontWeight: "bold" }}>
+        <Typography
+          sx={{ fontSize: "1.75rem", fontWeight: "bold", marginBottom: "2rem" }}
+        >
           {result.meanings[0].partOfSpeech}
         </Typography>
 
@@ -54,7 +67,13 @@ const Results = ({ results }: Props) => {
           </Box>
 
           <Box>
-            <Box sx={{ display: "flex", alignItems: "center" }}>
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                marginTop: "2.5rem",
+              }}
+            >
               <Typography sx={{ color: COLORS.darkGrey }}>Synonym </Typography>
               {result.meanings[0].synonyms.map((synonym) => {
                 return (
@@ -84,13 +103,15 @@ const Results = ({ results }: Props) => {
                 return (
                   <ul
                     key={result.word}
-                    style={{ listStyle: "none", display: "inline-block" }}
+                    style={{
+                      listStyle: "none",
+                      display: "inline-block",
+                    }}
                   >
                     <li
                       style={{
                         color: COLORS.purple,
                         fontWeight: "bold",
-
                         marginRight: "10px",
                       }}
                     >
