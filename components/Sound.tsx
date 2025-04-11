@@ -8,7 +8,7 @@ const Sound = (result: any) => {
   return (
     <Link
       href={result.result.phonetics[0].audio}
-      // href=""
+      target="_blank"
       underline="none"
       sx={{
         backgroundColor: COLORS.lavender,
