@@ -4,8 +4,10 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Switch from "@mui/material/Switch";
 import { COLORS } from "@/styles/colors";
+import { useState } from "react";
 
 const Nav = () => {
+  const [checked, setChecked] = useState(true);
   return (
     <Box
       sx={{
@@ -22,7 +24,7 @@ const Nav = () => {
         <Typography>
           Font Switcher <span style={{ color: COLORS.purple }}>v</span>{" "}
         </Typography>{" "}
-        <Switch /> Dark Mode
+        <Switch checked={checked} /> Dark Mode
       </Box>
     </Box>
   );

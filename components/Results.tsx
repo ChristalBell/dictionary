@@ -1,3 +1,4 @@
+"use client";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import React from "react";
@@ -6,6 +7,7 @@ import { COLORS } from "@/styles/colors";
 import Button from "@mui/material/Button";
 import Link from "@mui/material/Link";
 import Sound from "./Sound";
+import { useState } from "react";
 
 interface Props {
   results: Result[];
@@ -13,8 +15,9 @@ interface Props {
 const Results = ({ results }: Props) => {
   const result = results[0];
   console.log(result);
+  const [dark, setDark] = useState(false);
   return (
-    <Box>
+    <Box sx={{ backgroundColor: dark ? "black" : "white" }}>
       <Box
         className="top"
         sx={{
