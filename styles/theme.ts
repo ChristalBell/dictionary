@@ -4,6 +4,12 @@ import { createTheme } from "@mui/material";
 const theme = createTheme({
   palette: {
     mode: "dark",
+    primary: {
+      main: "black",
+      light: "white",
+      dark: "#a547e8",
+      contrastText: "#a547e8",
+    },
   },
   typography: {
     h1: {
