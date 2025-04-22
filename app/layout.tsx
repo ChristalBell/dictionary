@@ -17,11 +17,14 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const darkMode = useStore((state) => state.darkMode);
   return (
     <html lang="en">
       <body className={inter.className}>
         <AppRouterCacheProvider options={{ enableCssLayer: true }}>
-          <ThemeProvider theme={theme}>{children}</ThemeProvider>
+          <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
+            {children}
+          </ThemeProvider>
         </AppRouterCacheProvider>
       </body>
     </html>
